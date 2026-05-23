@@ -691,11 +691,20 @@ if (typeof window !== 'undefined') {
   window.__capybit_pushScene = (scene, durationMs) => {
     _externalScene = scene || null;
     _externalUntil = performance.now() + (durationMs || 5000);
+    console.info(
+      '[capybit] external scene set, expires in',
+      durationMs || 5000,
+      'ms — sprite:',
+      scene?.sprite,
+      'overlays:',
+      scene?.overlays?.length || 0,
+    );
   };
   window.__capybit_clearScene = () => {
     _externalScene = null;
     _externalUntil = 0;
   };
+  console.info('[capybit] __capybit_pushScene installed on window');
 }
 
 // ---------------------------------------------------------------------------

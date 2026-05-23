@@ -26,11 +26,23 @@ function wireStateEvents(tauri) {
   // scene schema; back-end emits this via `set_scene` command (or its own
   // proactive triggers later). Schema is intentionally identical to the
   // shape the renderer accepts.
+  console.info(
+    '[capybit] lcd-scene listener attached; pushScene available?',
+    typeof window.__capybit_pushScene === 'function',
+  );
   tauri.event.listen('lcd-scene', (event) => {
+    console.info('[capybit] lcd-scene received', event.payload);
     const payload = event.payload || {};
-    if (payload.scene && typeof window.__capybit_pushScene === 'function') {
-      window.__capybit_pushScene(payload.scene, payload.duration_ms || 5000);
+    if (!payload.scene) {
+      console.warn('[capybit] lcd-scene payload has no .scene field');
+      return;
     }
+    if (typeof window.__capybit_pushScene !== 'function') {
+      console.warn('[capybit] __capybit_pushScene not defined');
+      return;
+    }
+    window.__capybit_pushScene(payload.scene, payload.duration_ms || 5000);
+    console.info('[capybit] pushed external scene');
   });
 }
 

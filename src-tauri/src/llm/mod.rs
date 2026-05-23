@@ -4,6 +4,7 @@ pub mod opener;
 pub mod openrouter;
 pub mod prompts;
 pub mod summarizer;
+pub mod tools;
 
 use serde::{Deserialize, Serialize};
 
