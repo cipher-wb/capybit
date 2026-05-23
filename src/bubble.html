@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Capybit · Bubble</title>
+    <link rel="stylesheet" href="./ui/bubble.css" />
+  </head>
+  <body>
+    <div id="bubble" class="bubble">
+      <!-- Proactive opener panel: shown only when capybara initiates. -->
+      <div id="proactive" class="proactive" hidden>
+        <div id="proactiveText" class="proactive-text"></div>
+        <div class="proactive-actions">
+          <button id="respondBtn" class="primary-btn">回应</button>
+          <button id="laterBtn" class="ghost-btn">等会儿</button>
+        </div>
+      </div>
+
+      <div id="reply" class="reply" hidden></div>
+      <textarea
+        id="input"
+        class="input"
+        rows="2"
+        placeholder="跟水豚说点什么…（Enter 发送，Shift+Enter 换行）"
+        autofocus
+      ></textarea>
+      <div class="hint">
+        <span id="status">·</span>
+        <span class="close" id="closeBtn">关闭</span>
+      </div>
+    </div>
+    <script type="module" src="./ui/bubble.js"></script>
+  </body>
+</html>

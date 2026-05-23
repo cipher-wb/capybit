@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Capybit · 诞生</title>
+    <link rel="stylesheet" href="./ui/birth.css" />
+  </head>
+  <body>
+    <div class="card">
+      <!-- Step 1: 欢迎 -->
+      <section id="step-welcome" class="step active">
+        <h1>你好。</h1>
+        <p class="lead">
+          我还没有形状。<br />
+          先告诉我，<br />
+          你常常写字的地方在哪里？
+        </p>
+        <button id="pickBtn" class="primary">选择一个文件夹</button>
+        <p class="hint">Documents、Obsidian Vault、随手的笔记，都行。</p>
+      </section>
+
+      <!-- Step 2: 扫描中 -->
+      <section id="step-scanning" class="step">
+        <h1>在翻你写过的字…</h1>
+        <p class="lead muted" id="scanFolder"></p>
+        <div class="spinner"></div>
+      </section>
+
+      <!-- Step 3: 揭示摘录 -->
+      <section id="step-reveal" class="step">
+        <h1>这段话飘了出来——</h1>
+        <blockquote id="excerpt"></blockquote>
+        <p class="hint" id="sourceFile"></p>
+        <p class="lead">
+          它们凝结、慢下来，长出了耳朵、长出了一身柔软的毛。
+        </p>
+        <button id="continueBtn" class="primary">继续</button>
+        <button id="rescanBtn" class="ghost">再换一段</button>
+      </section>
+
+      <!-- Step 4: 命名 + 互相称呼 -->
+      <section id="step-name" class="step">
+        <h1>你想叫我什么呀？</h1>
+        <input id="capyName" type="text" maxlength="12" placeholder="给我起个名字…" autocomplete="off" />
+        <h2>我可以怎么称呼你？</h2>
+        <input id="userName" type="text" maxlength="20" placeholder="（可以留空，以后再告诉我）" autocomplete="off" />
+        <button id="finishBtn" class="primary" disabled>开始吧</button>
+        <p class="error" id="finishError" hidden></p>
+      </section>
+    </div>
+    <script type="module" src="./ui/birth.js"></script>
+  </body>
+</html>

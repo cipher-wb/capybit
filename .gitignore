@@ -1,0 +1,18 @@
+# Rust / Tauri
+src-tauri/target/
+src-tauri/gen/
+# Note: Cargo.lock IS committed (Capybit is a binary application, per Rust convention)
+
+# Node
+node_modules/
+pnpm-lock.yaml.bak
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local secrets
+*.local
+config.local.json
